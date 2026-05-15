@@ -31,5 +31,5 @@ jobs:
     steps:
       - name: Deploy Application
         run: |
-          echo "Deploying Image URL: ${{ needs.docker.outputs.image_url }}"
-          echo "Deploying image to production"
+          SHORT_SHA=$(echo "${{ github.sha }}" | cut -c1-7)
+          echo "Deploying image: my-app:sha-$SHORT_SHA to production"
