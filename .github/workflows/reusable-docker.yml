@@ -43,7 +43,7 @@ jobs:
           docker build --pull -t ${{ secrets.docker_username }}/${{ inputs.image_name }}:${{ inputs.tag }} .
 
       - name: Scan Docker Image for Vulnerabilities
-        uses: aquasecurity/trivy-action@0.36.0
+        uses: aquasecurity/trivy-action@0.35.0
         with:
           image-ref: '${{ secrets.docker_username }}/${{ inputs.image_name }}:${{ inputs.tag }}'
           format: 'table'
