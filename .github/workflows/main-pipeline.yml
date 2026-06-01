@@ -5,8 +5,10 @@ on:
     branches:
       - main
 
-jobs:
+permissions:
+  contents: read
 
+jobs:
   build-test:
     uses: ./.github/workflows/reusable-build-test.yml
     with:
@@ -28,6 +30,8 @@ jobs:
     needs: docker
     environment:
       name: production
+    permissions:
+      contents: read
     steps:
       - name: Deploy Application
         run: |
