@@ -20,7 +20,7 @@ jobs:
       java_version: "21"
       run_tests: true
 
-  dependency-check:
+  dependency-review:
     runs-on: ubuntu-latest
     permissions:
       contents: read
