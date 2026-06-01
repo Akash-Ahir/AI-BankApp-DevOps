@@ -27,7 +27,7 @@
 
         <java.version>21</java.version>
 
-        <tomcat.version>10.1.54</tomcat.version>
+        <tomcat.version>10.1.55</tomcat.version>
 
         <thymeleaf.version>3.1.5.RELEASE</thymeleaf.version>
 
