@@ -20,17 +20,16 @@ jobs:
       java_version: "21"
       run_tests: true
 
-  dependency-review:
-    name: Dependency Review
+  dependency-check:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Check Dependencies for Vulnerabilities
+      - name: Dependency Review
         uses: actions/dependency-review-action@v4
         with:
           fail-on-severity: critical
