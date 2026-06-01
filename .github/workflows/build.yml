@@ -4,7 +4,7 @@ on:
   workflow_call:
 
 permissions:
-  id-token: write  # Required for OIDC
+  id-token: write  
   contents: read
 
 jobs:
@@ -62,18 +62,17 @@ jobs:
         with:
           image-ref: bankapp:scan-${{ github.sha }}
           format: 'table'
-          exit-code: '1'         # Enforce: fail pipeline on CRITICAL/HIGH findings
+          exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
           output: trivy-report.txt
-          trivy-config: trivy.yaml
 
       - name: Upload Trivy Report
         uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: trivy-scan-report
+          name: trivy-report
           path: trivy-report.txt
 
   # ============================================================

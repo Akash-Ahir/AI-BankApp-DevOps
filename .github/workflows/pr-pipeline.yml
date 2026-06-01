@@ -4,6 +4,8 @@ on:
   pull_request:
     branches:
       - main
+      - dev 
+      - day-49-devsecops
     types:
       - opened
       - synchronize
@@ -21,16 +23,15 @@ jobs:
       run_tests: true
 
   dependency-review:
-    name: Dependency Review
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Check Dependencies for Vulnerabilities
+      - name: Dependency Review
         uses: actions/dependency-review-action@v4
         with:
           fail-on-severity: critical
